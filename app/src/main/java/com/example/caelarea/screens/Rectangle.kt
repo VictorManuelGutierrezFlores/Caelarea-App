@@ -1,7 +1,5 @@
 package com.example.caelarea.screens
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,71 +12,58 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.caelarea.R
-import com.example.caelarea.calculateTrianArea
+import com.example.caelarea.calculateRectArea
 
 @Preview
 @Composable
-fun Triangle(){
-    /// INIT VARIABLE
-    var base by remember { mutableStateOf("") }
-    var height by remember { mutableStateOf("") }
-    var area by remember { mutableStateOf(0.0) } // Initial area set to 0.0
+fun Rectangle(){
+    // INIT VARIABLES
+    var large by remember { mutableStateOf("") }
+    var width by remember { mutableStateOf("") }
+    var area by remember { mutableStateOf(0.0) }
 
-
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Image(painter = painterResource(id = R.drawable.triangule_image), contentDescription = null )
-        Text(text = "Triangulo")
-
+    Column {
         OutlinedTextField(
-            value = base,
-            onValueChange = { newBase ->
+            value = large,
+            onValueChange = { newLarge ->
                 // Validate input immediately on change
-                if (newBase.all { it.isDigit() || it == '.' })
+                if ( newLarge.all { it.isDigit() || it == '.' })
                 {
-                    base = newBase
+                    large = newLarge
                 }
             },
-            label = { Text("Base") },
+            label = { Text("Largo") },
             modifier = Modifier
                     .fillMaxWidth()
                     .padding(10.dp),
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
         )
-
         OutlinedTextField(
-            value = height,
-            onValueChange = { newHeight ->
+            value = width,
+            onValueChange = { newWidth ->
                 // Validate input immediately on change
-                if (newHeight.all { it.isDigit() || it == '.' })
+                if ( newWidth.all { it.isDigit() || it == '.' })
                 {
-                    height = newHeight
+                    width = newWidth
                 }
             },
-            label = { Text("Altura") },
+            label = { Text("Ancho") },
             modifier = Modifier
                     .fillMaxWidth()
                     .padding(10.dp),
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
         )
-
         Button(
             onClick = {
-                val parsedBase = base.toDoubleOrNull()
-                val parsedHeight = height.toDoubleOrNull()
-                if (parsedBase != null && parsedHeight != null )
+                val parsedLarge = large.toDoubleOrNull()
+                val parsedWidth = width.toDoubleOrNull()
+                if (parsedWidth != null && parsedLarge != null)
                 {
-                    area = calculateTrianArea(parsedHeight, parsedBase)
+                    area = calculateRectArea(parsedWidth, parsedWidth)
                 } else
                 {
                     // Handle invalid input (optional)
@@ -91,11 +76,9 @@ fun Triangle(){
         ) {
             Text(text = "Calcular")
         }
-
-        if (area > 0.0)
-        {
-            Text(text = "El area del triangulo es: $area")
+        
+        if( area > 0.0){
+            Text(text = "El area del rectangulo es $area")
         }
-
     }
 }

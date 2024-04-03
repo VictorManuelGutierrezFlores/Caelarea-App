@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.caelarea.screens.Circle
 import com.example.caelarea.screens.HomeScreen
+import com.example.caelarea.screens.Rectangle
 import com.example.caelarea.screens.Rhombus
 import com.example.caelarea.screens.Trapeze
 import com.example.caelarea.screens.Triangle
@@ -28,6 +29,9 @@ fun CaelareaNavigation(navController: NavHostController){
         }
         composable(NavScreen.TrapezeScreen.name){
             Trapeze()
+        }
+        composable(NavScreen.RectangleScreen.name){
+            Rectangle()
         }
     }
 }

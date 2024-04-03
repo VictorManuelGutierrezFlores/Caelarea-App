@@ -1,6 +1,7 @@
 package com.example.caelarea.models
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CallToAction
 import androidx.compose.material.icons.filled.CheckBoxOutlineBlank
 import androidx.compose.material.icons.filled.Directions
 import androidx.compose.material.icons.outlined.ChangeHistory
@@ -37,5 +38,11 @@ sealed class ItemsBottomNav(
         Icons.Filled.CheckBoxOutlineBlank,
         title = "Trapecio",
         NavScreen.TrapezeScreen.name
+    )
+
+    object  Item_bottom_navbar5: ItemsBottomNav(
+        Icons.Filled.CallToAction,
+        title = "Rectangulo",
+        NavScreen.RectangleScreen.name
     )
 }

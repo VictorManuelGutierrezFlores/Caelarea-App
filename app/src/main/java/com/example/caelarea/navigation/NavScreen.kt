@@ -5,5 +5,6 @@ enum class NavScreen {
     TriangleScreen,
     CircleScreen,
     RhombusScreen,
-    TrapezeScreen
+    TrapezeScreen,
+    RectangleScreen
 }

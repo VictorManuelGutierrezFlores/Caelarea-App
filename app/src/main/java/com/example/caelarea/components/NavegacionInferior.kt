@@ -11,6 +11,7 @@ import com.example.caelarea.models.ItemsBottomNav.Item_bottom_navbar
 import com.example.caelarea.models.ItemsBottomNav.Item_bottom_navbar2
 import com.example.caelarea.models.ItemsBottomNav.Item_bottom_navbar3
 import com.example.caelarea.models.ItemsBottomNav.Item_bottom_navbar4
+import com.example.caelarea.models.ItemsBottomNav.Item_bottom_navbar5
 import com.example.caelarea.navigation.CurrentRoute
 
 @Composable
@@ -21,7 +22,8 @@ fun NavegacionInferior(
         Item_bottom_navbar,
         Item_bottom_navbar2,
         Item_bottom_navbar3,
-        Item_bottom_navbar4
+        Item_bottom_navbar4,
+        Item_bottom_navbar5
     )
 
     BottomAppBar {
